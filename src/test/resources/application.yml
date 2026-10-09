@@ -1,0 +1,19 @@
+# Los tests usan H2 en memoria: no necesitan PostgreSQL
+spring:
+  datasource:
+    url: jdbc:h2:mem:supermarket;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+supermarket:
+  security:
+    jwt-secret: secreto-solo-para-tests
+    username: admin
+    password: clave-de-prueba
